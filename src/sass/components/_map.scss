@@ -1,0 +1,51 @@
+.map {
+
+	position: absolute;
+	top: $top-nav-height;
+	bottom: 0;
+	width: 100%;
+
+	&__wrapper {
+
+		padding:0;
+		margin:0;
+		height: 100%;
+
+	}
+
+}
+
+#js-map { 
+		margin: 0;
+    	padding: 0;
+		height: 100%; 
+}
+
+// Mapbox built-in classes in this section DO NOT adhere to BEM 
+
+.mapboxgl-ctrl-geocoder { font-family: $main-font, sans-serif; }
+
+.mapboxgl-ctrl-attrib { font-family: $main-font, sans-serif; }
+
+.mapboxgl-popup {
+
+        max-width: 400px;
+}
+
+.mapboxgl-popup-content {
+
+	font-family: $main-font, sans-serif;
+
+	.mapboxgl-popup-close-button { padding: 5px; }
+
+	.popup {
+
+		font-family: $main-font, sans-serif;
+
+		margin: 0px 10px 0px 10px; 
+
+		&__title {	margin: 0px 0px 8px 0px; font-weight: 600; }
+		&__text { margin: 0px; }
+	}
+
+}

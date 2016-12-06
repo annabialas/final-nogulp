@@ -1,0 +1,43 @@
+// NEEDED: breakpoints
+
+// mixins
+
+@mixin transition {
+    transition: all .4s ease;
+     -webkit-transition: all .4s ease;
+}
+
+// top-nav properties for other components to rely on
+
+$top-nav-height: 50px; 
+
+// colors
+
+$black: #000;
+$white: #FFF;
+
+$blue: #0000FF;
+$blue-20k: darken($blue, 4);
+$blue-40k: darken($blue, 6);
+
+// grayscale tones
+
+$gray-10: rgba($black, .1);
+$gray-20: rgba($black, .2);
+$gray-30: rgba($black, .3);
+$gray-40: rgba($black, .4);
+$gray-50: rgba($black, .5);
+$gray-60: rgba($black, .6);
+$gray-70: rgba($black, .7);
+$gray-80: rgba($black, .8);
+$gray-90: rgba($black, .9);
+
+$white-10: rgba($white, .1);
+$white-20: rgba($white, .2);
+$white-30: rgba($white, .3);
+$white-40: rgba($white, .4);
+$white-50: rgba($white, .5);
+$white-60: rgba($white, .6);
+$white-70: rgba($white, .7);
+$white-80: rgba($white, .8);
+$white-90: rgba($white, .9);

@@ -1,0 +1,51 @@
+form,
+.form {
+    padding: 10px 0;
+
+    input { box-shadow: none; }
+
+    select:focus { 
+
+    	outline: none; 
+    	border: 1px solid #8a8a8a; 
+    	background-color: #fefefe;
+    	box-shadow: 0 0 5px #cacaca;
+    	transition: box-shadow .5s,border-color .25s ease-in-out;
+
+    }
+
+ 	option:disabled { color: $gray-50; }
+
+    ::-webkit-input-placeholder {
+        color: $gray-50;
+        text-align: left;
+    }
+
+    input[type=submit] {
+    	height: 37px;
+	    padding: 8px 32px 8px 32px;
+	    background-color: #333;
+	    color: #fefefe;
+	    border-style: solid;
+	    border-width: 1px;
+    }
+
+    input[type=submit]:hover {
+        background-color: $blue;
+        @include transition;
+    }
+
+    input[type=submit]:active {
+        background-color: $blue-40k;
+        @include transition;
+    }
+
+    input[type=submit]:focus {
+        background-color: $blue;
+        outline: none; 
+        @include transition;
+    }
+
+
+}
+
