@@ -13,10 +13,14 @@ require('dotenv').config();
 var app = express();
 var PORT = process.env.PORT || 8080;
 
+// require model Line
+// temporarily...
+var Line = require('./models/line');
+
 // set cookieSecret in .env
 app.use(session({
     secret: process.env.cookieSecret,
-    name: 'login',
+    name: 'xyz',
     cookie: {
       httpOnly: true,
       maxAge: 1000 * 60 * 60 * 24 * 7 // 1 week
@@ -29,6 +33,13 @@ app.use(session({
     })
   }
 ));
+
+// attach req.session.flash to res.locals
+app.use(function(req, res, next) {
+  res.locals.flash = req.session.flash;
+  delete req.session.flash;
+  next();
+});
 
 // init handlebars
 app.engine('handlebars', hbs({defaultLayout: 'base'}));
@@ -49,12 +60,30 @@ auth.registerRoutes();
 app.use(express.static('public'));
 
 // home page
-app.get('/', function(req, res) {
-	res.render('index');
+app.get('/', function(req, res){
+
+  var query = {};
+
+  Line.find(query, function(err, data){
+    var pageData = {
+      lines: data
+    };
+
+    res.render('index', pageData);
+  });
 });
 
-// var renderViews = require('./routes/views');
-// app.use('/', renderViews);
+app.delete('/api/lines/:id', function(req, res){
+  Line.findOneAndRemove({ _id: req.params.id }, function(err){
+    if (err) {
+      console.log(err);
+    }
+    res.json();
+  });
+});
+
+var renderSubmit = require('./routes/submit');
+app.use('/submit', renderSubmit);
 
 // start server
 app.listen(PORT, function() {

@@ -1,0 +1,38 @@
+{{#if user}}
+
+<div class="page-section">
+<div class="row">
+	<div class="small-11 small-centered medium-6 medium-offset-3 large-6 large-offset-3 columns">
+		{{#each lines}}
+			<div>
+				<p>{{text}} {{_id}}</p>
+				<button data-id="{{_id}}" class="delete">delete me</button>
+			</div>
+			<br>
+			<br>
+		{{/each}}
+	</div>
+</div>
+</div>
+
+<script>
+	$(".delete").click(deleteLine);
+
+	function deleteLine(event) {
+		// here ajax request happens
+		$.ajax({
+		    url: '/api/lines/' + this.dataset.id,
+		    type: 'DELETE',
+		    success: function(response) { 
+		    	window.location.replace('/app')
+		    }
+		})
+		$(this).siblings().remove();
+		$(this).remove();
+		
+	}
+
+
+</script>
+
+{{/if}}
