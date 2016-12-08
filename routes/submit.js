@@ -27,20 +27,3 @@ router.post('/', function(req, res){
 });
 
 module.exports = router;
-
-
-// router.get('/', function(req, res){
-
-// 	var query = {};
-// 	if (req.query.animal) {
-// 		query = {animal: req.query.animal};
-// 	};
-
-// 	Pet.find(query, function(err, data){
-// 		var pageData = {
-// 			pets: data
-// 		};
-
-// 		res.render('pets', pageData);
-// 	});
-// });

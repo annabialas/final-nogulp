@@ -8,8 +8,6 @@
 				<p>{{text}} {{_id}}</p>
 				<button data-id="{{_id}}" class="delete">delete me</button>
 			</div>
-			<br>
-			<br>
 		{{/each}}
 	</div>
 </div>
@@ -27,9 +25,9 @@
 		    	window.location.replace('/app')
 		    }
 		})
+		
 		$(this).siblings().remove();
 		$(this).remove();
-		
 	}
 
 

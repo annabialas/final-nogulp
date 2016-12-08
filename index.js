@@ -73,17 +73,37 @@ app.get('/', function(req, res){
   });
 });
 
+// api
+app.get('/api', function(req, res){
+  var query = {};
+
+  Line.find(query, function(err, data){
+      var apiData = data.map(function(item) {
+          return {
+              "id": item._id,
+              "line": item.text
+          }
+      })
+      res.json(apiData); 
+  });
+
+});
+
+
 app.delete('/api/lines/:id', function(req, res){
   Line.findOneAndRemove({ _id: req.params.id }, function(err){
     if (err) {
       console.log(err);
     }
-    res.json();
+    // res.send('successfully registered!');
   });
 });
 
 var renderSubmit = require('./routes/submit');
 app.use('/submit', renderSubmit);
+
+// var renderMyPosts = require('./routes/my-posts');
+// app.use('/my-posts', renderMyPosts);
 
 // start server
 app.listen(PORT, function() {
