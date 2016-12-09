@@ -15,7 +15,7 @@ var PORT = process.env.PORT || 8080;
 
 // require model Line
 // temporarily...
-var Line = require('./models/line');
+var User = require('./models/user');
 
 // set cookieSecret in .env
 app.use(session({
@@ -59,14 +59,19 @@ auth.registerRoutes();
 
 app.use(express.static('public'));
 
+// app.get('/', function(req, res){
+//   res.render('index');
+// });
+
+
 // home page
 app.get('/', function(req, res){
 
   var query = {};
 
-  Line.find(query, function(err, data){
+  User.find(query, function(err, data){
     var pageData = {
-      lines: data
+      users: data
     };
 
     res.render('index', pageData);
@@ -74,29 +79,43 @@ app.get('/', function(req, res){
 });
 
 // api
-app.get('/api', function(req, res){
-  var query = {};
+// app.get('/api', function(req, res){
+//   var query = {};
 
-  Line.find(query, function(err, data){
-      var apiData = data.map(function(item) {
-          return {
-              "id": item._id,
-              "line": item.text
-          }
-      })
-      res.json(apiData); 
-  });
+//   Line.find(query, function(err, data){
+//       var apiData = data.map(function(item) {
+//           return {
+//               "id": item._id,
+//               "line": item.text
+//           }
+//       })
+//       res.json(apiData); 
+//   });
 
-});
+// });
 
 
-app.delete('/api/lines/:id', function(req, res){
-  Line.findOneAndRemove({ _id: req.params.id }, function(err){
+app.delete('/api/users/lines/:id', function(req, res){
+  // User.findOneAndRemove({ _id: req.params.id }, function(err){
+  //   if (err) {
+  //     console.log(err);
+  //   }
+
+  //   res.send();
+  // });
+
+  User.findOneAndUpdate(req.user._id,
+  {
+    $pull: { lines: { _id: req.params.id }}
+  },
+  {"new": true},
+  function(err, doc){
     if (err) {
-      console.log(err);
+     console.log(err)
     }
-    // res.send('successfully registered!');
+    res.send('deleted!')
   });
+
 });
 
 var renderSubmit = require('./routes/submit');
