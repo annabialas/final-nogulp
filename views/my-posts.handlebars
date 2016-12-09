@@ -1,0 +1,19 @@
+{{#if user}}
+
+<div class="page-section">
+<div class="row">
+	<div class="small-11 small-centered medium-6 medium-offset-3 large-6 large-offset-3 columns">
+		{{#each users}}
+			{{#each lines}}
+			<div>
+				<p>{{text}}</p>
+				<br>
+				<br>
+			</div>
+			{{/each}}
+		{{/each}}
+	</div>
+</div>
+</div>
+
+{{/if}}

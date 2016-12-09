@@ -94,22 +94,23 @@ app.get('/', function(req, res){
 
 // });
 
+app.get('/my-posts', function(req, res){
+
+  User.findById(req.user._id, function (err, data) {
+    var pageData = {
+      users: data
+    };
+
+    res.render('my-posts', pageData);
+  });
+});
+
 
 app.delete('/api/users/lines/:id', function(req, res){
-  // User.findOneAndRemove({ _id: req.params.id }, function(err){
-  //   if (err) {
-  //     console.log(err);
-  //   }
 
-  //   res.send();
-  // });
-
-  User.findOneAndUpdate(req.user._id,
-  {
+  User.findOneAndUpdate(req.user._id, {
     $pull: { lines: { _id: req.params.id }}
-  },
-  {"new": true},
-  function(err, doc){
+  }, {"new": true}, function(err, doc){
     if (err) {
      console.log(err)
     }
@@ -121,8 +122,6 @@ app.delete('/api/users/lines/:id', function(req, res){
 var renderSubmit = require('./routes/submit');
 app.use('/submit', renderSubmit);
 
-// var renderMyPosts = require('./routes/my-posts');
-// app.use('/my-posts', renderMyPosts);
 
 // start server
 app.listen(PORT, function() {
