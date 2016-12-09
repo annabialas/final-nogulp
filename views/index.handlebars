@@ -3,11 +3,15 @@
 <div class="page-section">
 <div class="row">
 	<div class="small-11 small-centered medium-6 medium-offset-3 large-6 large-offset-3 columns">
-		{{#each lines}}
+		{{#each users}}
+			{{#each lines}}
 			<div>
-				<p>{{text}} {{_id}}</p>
+				<p>{{text}}</p>
 				<button data-id="{{_id}}" class="delete">delete me</button>
+				<br>
+				<br>
 			</div>
+			{{/each}}
 		{{/each}}
 	</div>
 </div>
@@ -17,12 +21,12 @@
 	$(".delete").click(deleteLine);
 
 	function deleteLine(event) {
+		console.log(this);
 		// here ajax request happens
 		$.ajax({
-		    url: '/api/lines/' + this.dataset.id,
+		    url: '/api/users/lines/' + this.dataset.id,
 		    type: 'DELETE',
 		    success: function(response) { 
-		    	window.location.replace('/app')
 		    }
 		})
 		
