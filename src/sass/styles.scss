@@ -1,12 +1,12 @@
 // importing main
-@import 'components/base';
+@import 'custom';
 
 // components
 @import 'components/variables';
 @import 'components/typography';
 @import 'components/top-nav';
-@import 'components/map';
 @import 'components/form';
+@import 'components/footer';
 
 // custom pages
 @import 'submit';

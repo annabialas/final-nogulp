@@ -59,11 +59,6 @@ auth.registerRoutes();
 
 app.use(express.static('public'));
 
-// app.get('/', function(req, res){
-//   res.render('index');
-// });
-
-
 // home page
 app.get('/', function(req, res){
 
@@ -78,22 +73,6 @@ app.get('/', function(req, res){
   });
 });
 
-// api
-// app.get('/api', function(req, res){
-//   var query = {};
-
-//   Line.find(query, function(err, data){
-//       var apiData = data.map(function(item) {
-//           return {
-//               "id": item._id,
-//               "line": item.text
-//           }
-//       })
-//       res.json(apiData); 
-//   });
-
-// });
-
 app.get('/my-posts', function(req, res){
 
   User.findById(req.user._id, function (err, data) {
@@ -106,15 +85,30 @@ app.get('/my-posts', function(req, res){
 });
 
 
-app.delete('/api/users/lines/:id', function(req, res){
+app.delete('/users/lines/:id', function(req, res){
 
-  User.findOneAndUpdate(req.user._id, {
-    $pull: { lines: { _id: req.params.id }}
-  }, {"new": true}, function(err, doc){
-    if (err) {
-     console.log(err)
-    }
-    res.send('deleted!')
+  // User.findOneAndUpdate(req.user._id, {
+  //  $pull: { lines: { _id: req.params.id }}
+  // }, {"new": true}, function(err, doc){
+  //     if (err) {
+  //     console.log(err);
+  //     }
+  //     res.send('deleted!')
+  // }); // THIS DID NOT WORK, RUDE
+
+  User.findById(req.user._id).then(function(user) {
+
+      console.log(user._id)
+
+      user.lines.forEach(function(line) {
+          if (line._id == req.params.id) {
+            var index = user.lines.indexOf(line);
+            user.lines.splice(index, 1);
+            user.save();
+            res.send(user);
+          }
+      });
+
   });
 
 });

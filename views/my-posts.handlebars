@@ -7,6 +7,7 @@
 			{{#each lines}}
 			<div>
 				<p>{{text}}</p>
+				<button data-id="{{_id}}" class="delete">delete me</button>
 				<br>
 				<br>
 			</div>
@@ -15,5 +16,24 @@
 	</div>
 </div>
 </div>
+
+<script>
+	$(".delete").click(deleteLine);
+
+	function deleteLine(event) {
+		console.log(this);
+		// here ajax request happens
+		$.ajax({
+		    url: '/users/lines/' + this.dataset.id,
+		    type: 'DELETE',
+		    success: function(response) { 
+		    	console.log('deleted');
+		    }
+		})
+		
+		$(this).siblings().remove();
+		$(this).remove();
+	}
+</script>
 
 {{/if}}
