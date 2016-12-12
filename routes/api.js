@@ -13,8 +13,41 @@ function isAuthenticated(req, res, next) {
 }
 
 router.get('/', isAuthenticated, function(req, res){
-    res.locals.title = 'API';
-    res.render('api');
+
+    var query = {};
+
+    if (req.query.q) {
+     query = { line: req.query.q };
+    };
+
+    var re = new RegExp(req.query.q, 'i');
+                                      
+    User.find(
+     // { lines: { $elemMatch: { text: {$in: [req.query.line]} } } }, // the $in method did not work for me completely; returned the values only when query matched the entire string
+      { lines: { $elemMatch: { text: { $regex : re } } } }, 
+      function(err, data) {
+        if (err) {
+          res.status(500);
+          return res.json({
+            status: 'error', 
+            message: 'could not get lines'
+          });
+        };
+        if (data.length === 0) {
+          return res.render('api', {
+              flash: {
+                body: 'there are no lines matching your criteria'
+              }
+          });
+
+        };
+        var pageData = {
+          users: data
+        };
+        res.render('api', pageData);
+
+      });
+   
 });
 
 router.get('/lines', isAuthenticated, function(req, res){
