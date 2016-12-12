@@ -50,14 +50,26 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // connect to database
 mongoose.connect(process.env.DB_URL);
 
+// auth 
 var options = {};
 var auth = require('./lib/auth')(app, options);
 auth.init(); // setup middleware
 auth.registerRoutes();
 
+// serve static files from public folder
 app.use(express.static('public'));
 
-// home page
+// routes (except home page)
+var renderMyPosts = require('./routes/posts');
+app.use('/my-posts', renderMyPosts);
+
+var renderAPI = require('./routes/api');
+app.use('/api', renderAPI);
+
+var renderSubmit = require('./routes/submit');
+app.use('/submit', renderSubmit);
+
+// render home page
 app.get('/', function(req, res){
 
   var query = {};
@@ -70,24 +82,6 @@ app.get('/', function(req, res){
     res.render('index', pageData);
   });
 });
-
-app.get('/my-posts', function(req, res){
-
-  User.findById(req.user._id, function (err, data) {
-    var pageData = {
-      users: data
-    };
-
-    res.render('my-posts', pageData);
-  });
-});
-
-var renderAPI = require('./routes/api');
-app.use('/api', renderAPI);
-
-var renderSubmit = require('./routes/submit');
-app.use('/submit', renderSubmit);
-
 
 // start server
 app.listen(PORT, function() {

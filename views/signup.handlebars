@@ -2,8 +2,55 @@
 <div class="row">
 	<div class="small-11 small-centered medium-6 medium-offset-3 large-6 large-offset-3 columns">
 	<h3 class="form-title">Sign Up</h3>
-		{{> form }}
+		<form class="form" action="" method="post" name="registration">
+			<input type="text" name="username" placeholder="Username">
+			<input type="password" name="password" placeholder="Password">
+
+			<input type="submit" value="Sign Up">
+		</form>
 	</div>
 </div>
 </div>
+
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
+<script>
+// Wait for the DOM to be ready
+$(function() {
+  // Initialize form validation on the registration form.
+  // It has the name attribute "registration"
+  $("form[name='registration']").validate({
+    // Specify validation rules
+    rules: {
+      // The key name on the left side is the name attribute
+      // of an input field. Validation rules are defined
+      // on the right side
+      username: {
+      	required: true,
+      	minlength: 6
+      },
+      password: {
+        required: true,
+        minlength: 8
+      }
+    },
+    // Specify validation error messages
+    messages: {
+      username: {
+      	required: "Please provide a username",
+      	minlength: "Your username must be at least 6 characters long"
+      },
+      password: {
+        required: "Please provide a password",
+        minlength: "Your password must be at least 8 characters long"
+      }
+    },
+    // Make sure the form is submitted to the destination defined
+    // in the "action" attribute of the form when valid
+    submitHandler: function(form) {
+      form.submit();
+    }
+  });
+});
+</script>
+
 

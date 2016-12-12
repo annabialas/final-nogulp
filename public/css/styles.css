@@ -118,19 +118,24 @@ hr {
       transition: all .4s ease;
       -webkit-transition: all .4s ease; }
 
+.error {
+  text-align: left !important; }
+
 form,
 .form {
   padding: 10px 0; }
   form input,
   .form input {
-    box-shadow: none; }
+    box-shadow: none;
+    margin-bottom: 2px;
+    margin-top: 16px; }
   form select:focus,
   .form select:focus {
     outline: none;
     border: 1px solid #8a8a8a;
     background-color: #fefefe;
     box-shadow: 0 0 5px #cacaca;
-    transition: box-shadow .5s,border-color .25s ease-in-out; }
+    transition: box-shadow .5s border-color .25s ease-in-out; }
   form option:disabled,
   .form option:disabled {
     color: rgba(0, 0, 0, 0.5); }
@@ -162,6 +167,12 @@ form,
     outline: none;
     transition: all .4s ease;
     -webkit-transition: all .4s ease; }
+  form label#username-error, form label#password-error,
+  .form label#username-error,
+  .form label#password-error {
+    padding-left: 9px !important;
+    color: #FF0000 !important;
+    font-style: italic; }
 
 .footer {
   bottom: 0;

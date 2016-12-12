@@ -3,6 +3,10 @@ var router = express.Router();
 
 var User = require('../models/user');
 
+router.get('/', function(req, res){
+    res.locals.title = 'API';
+    res.render('api');
+});
 
 router.get('/lines', function(req, res){
 

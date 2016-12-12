@@ -1,8 +1,15 @@
+.error { text-align: left !important; }
+
 form,
 .form {
     padding: 10px 0;
 
-    input { box-shadow: none; }
+    input { 
+        box-shadow: none; 
+
+        margin-bottom: 2px;
+        margin-top: 16px;
+    }
 
     select:focus { 
 
@@ -10,7 +17,7 @@ form,
     	border: 1px solid #8a8a8a; 
     	background-color: #fefefe;
     	box-shadow: 0 0 5px #cacaca;
-    	transition: box-shadow .5s,border-color .25s ease-in-out;
+    	transition: box-shadow .5s border-color .25s ease-in-out;
 
     }
 
@@ -44,6 +51,12 @@ form,
         background-color: $blue;
         outline: none; 
         @include transition;
+    }
+
+    label#username-error, label#password-error { 
+        padding-left: 9px !important ; 
+        color: #FF0000 !important; 
+        font-style: italic;
     }
 
 
