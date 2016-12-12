@@ -13,8 +13,6 @@ require('dotenv').config();
 var app = express();
 var PORT = process.env.PORT || 8080;
 
-// require model Line
-// temporarily...
 var User = require('./models/user');
 
 // set cookieSecret in .env
@@ -84,34 +82,8 @@ app.get('/my-posts', function(req, res){
   });
 });
 
-
-app.delete('/users/lines/:id', function(req, res){
-
-  // User.findOneAndUpdate(req.user._id, {
-  //  $pull: { lines: { _id: req.params.id }}
-  // }, {"new": true}, function(err, doc){
-  //     if (err) {
-  //     console.log(err);
-  //     }
-  //     res.send('deleted!')
-  // }); // THIS DID NOT WORK, RUDE
-
-  User.findById(req.user._id).then(function(user) {
-
-      console.log(user._id)
-
-      user.lines.forEach(function(line) {
-          if (line._id == req.params.id) {
-            var index = user.lines.indexOf(line);
-            user.lines.splice(index, 1);
-            user.save();
-            res.send(user);
-          }
-      });
-
-  });
-
-});
+var renderAPI = require('./routes/api');
+app.use('/api', renderAPI);
 
 var renderSubmit = require('./routes/submit');
 app.use('/submit', renderSubmit);

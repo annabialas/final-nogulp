@@ -24,7 +24,7 @@
 		console.log(this);
 		// here ajax request happens
 		$.ajax({
-		    url: '/users/lines/' + this.dataset.id,
+		    url: '/api/lines/' + this.dataset.id,
 		    type: 'DELETE',
 		    success: function(response) { 
 		    	console.log('deleted');

@@ -9,58 +9,31 @@
 	<link rel="shortcut icon" href="#"/>
 	<!-- Page title handled by handlebars -->
 	<title>{{title}}</title>
-	<!-- Foundation CSS -->
-	<link rel="stylesheet" href="css/foundation.min.css" />
 	<!-- jQuery CDN -->
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <!-- Foundation CSS -->
+	<link rel="stylesheet" href="css/foundation.min.css" />
+	<!-- Material Icons -->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    rel="stylesheet">
 	<!-- Compiled Stylesheet -->
 	<link rel="stylesheet" href="css/styles.css"/>
 </head>
 <body>
 	<div class="wrap">
-	<div class="top-nav">
-		<div class="row">
-		  	<div class="small-12 medium-6 large-8 columns">
-		 		<h3 class="top-nav__logo"><a href="./">Final Project</a></h3>
-		  	</div>
-		  	<div class="small-12 medium-6 large-4 columns">
-		  		<nav class="top-nav__menu">
-		  			{{#if user}}
-		  			<div class="small-6 medium-8 large-8 columns">
-						<h5 class="top-nav__menu-item">{{user.username}}</h5>
-					</div>
-					<div class="small-6 medium-4 large-4 large-4 columns">
-						<h5 class="top-nav__menu-item"><a href="./logout">Log Out</a></h5>
-					</div>
-					{{else}}
-					<div class="small-6 medium-8 large-8 columns">
-						<h5 class="top-nav__menu-item"><a href="./signup">Sign Up</a></h5>
-					</div>
-					<div class="small-6 medium-4 large-4 large-4 columns">
-						<h5 class="top-nav__menu-item"><a href="./login">Log In</a></h5>
-					</div>
-					{{/if}}
-				</nav>
-		  	</div>
-		</div>
-	</div>
+		{{> top-nav }}
 	
-	{{{body}}}
+		{{{body}}}
 
-	<!-- Temporary Flash Format -->
-	{{#if flash}}
-        <p>{{flash.header}}</p>
-        <p>{{flash.body}}</p>
-    {{/if}}
+		<!-- Temporary Flash Format -->
+		{{#if flash}}
+	        <p>{{flash.header}}</p>
+	        <p>{{flash.body}}</p>
+	    {{/if}}
+
     </div>
 
-    <footer class="footer">
-		<div class="row expanded row--footer">
-		  	<div class="small-12 medium-4 medium-offset-8 columns columns--footer">
-		  		<p class="footer__content">© 2016 Anna Bialas for Dynamic Web Applications</p>
-		  	</div>
-		</div>
-	</footer>
+    {{> footer }}
 
 	<!-- Foundation JS -->
 	<script src="js/what-input.js"></script>
