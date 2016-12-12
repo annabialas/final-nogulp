@@ -3,7 +3,17 @@ var router = express.Router();
 
 var User = require('../models/user');
 
-router.get('/', function(req, res){
+function isAuthenticated(req, res, next) {
+
+    if (req.user) {
+        return next();
+    }
+
+    res.redirect('login');
+}
+
+router.get('/', isAuthenticated, function(req, res){
+
 	res.locals.title = 'My Posts';
 
 	User.findById(req.user._id, function (err, data) {
