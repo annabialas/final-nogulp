@@ -1,12 +1,11 @@
 <div class="page-section">
 <div class="row">
 	<div class="small-11 small-centered medium-6 medium-offset-3 large-6 large-offset-3 columns">
-	<h3 class="form-title">Sign Up</h3>
-		<form class="form" action="" method="post" name="registration">
+	<h3 class="form-title">Log In</h3>
+		<form class="form" action="" method="post" name="login">
 			<input type="text" name="username" placeholder="Username">
-			<input type="password" name="password" id="password" placeholder="Password">
-			<input type="password" name="repeat_password" placeholder="Repeat Password">
-			<input type="submit" value="Sign Up">
+			<input type="password" name="password" placeholder="Password">
+			<input type="submit" value="Log In">
 		</form>
 	</div>
 </div>
@@ -18,7 +17,7 @@
 $(function() {
   // Initialize form validation on the registration form.
   // It has the name attribute "registration"
-  $("form[name='registration']").validate({
+  $("form[name='login']").validate({
     // Specify validation rules
     rules: {
       // The key name on the left side is the name attribute
@@ -31,10 +30,6 @@ $(function() {
       password: {
         required: true,
         minlength: 4
-      },
-      repeat_password: {
-        required: true,
-        equalTo: "#password"
       }
     },
     // Specify validation error messages
@@ -46,10 +41,6 @@ $(function() {
       password: {
         required: "Please provide a password",
         minlength: "Your password must be at least 4 characters long"
-      },
-      repeat_password: {
-      	required: "Please, repeat password",
-        equalTo: "Doesn't match original password"
       }
     },
     // Make sure the form is submitted to the destination defined
@@ -59,6 +50,5 @@ $(function() {
     }
   });
 });
+
 </script>
-
-
