@@ -4,8 +4,8 @@
 	<h3 class="form-title">Sign Up</h3>
 		<form class="form" action="" method="post" name="registration">
 			<input type="text" name="username" placeholder="Username">
-			<input type="password" name="password" placeholder="Password">
-
+			<input type="password" name="password" id="password" placeholder="Password">
+			<input type="password" name="repeat_password" placeholder="Repeat Password">
 			<input type="submit" value="Sign Up">
 		</form>
 	</div>
@@ -31,6 +31,10 @@ $(function() {
       password: {
         required: true,
         minlength: 8
+      },
+      repeat_password: {
+        required: true,
+        equalTo: "#password"
       }
     },
     // Specify validation error messages
@@ -42,6 +46,10 @@ $(function() {
       password: {
         required: "Please provide a password",
         minlength: "Your password must be at least 8 characters long"
+      },
+      repeat_password: {
+      	required: "Please, repeat password",
+        equalTo: "Doesn't match original password"
       }
     },
     // Make sure the form is submitted to the destination defined

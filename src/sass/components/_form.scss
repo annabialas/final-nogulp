@@ -53,7 +53,7 @@ form,
         @include transition;
     }
 
-    label#username-error, label#password-error { 
+    label#username-error, label#password-error, label#repeat_password-error { 
         padding-left: 9px !important ; 
         color: #FF0000 !important; 
         font-style: italic;

@@ -167,9 +167,10 @@ form,
     outline: none;
     transition: all .4s ease;
     -webkit-transition: all .4s ease; }
-  form label#username-error, form label#password-error,
+  form label#username-error, form label#password-error, form label#repeat_password-error,
   .form label#username-error,
-  .form label#password-error {
+  .form label#password-error,
+  .form label#repeat_password-error {
     padding-left: 9px !important;
     color: #FF0000 !important;
     font-style: italic; }
