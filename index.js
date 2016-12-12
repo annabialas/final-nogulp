@@ -72,6 +72,8 @@ app.use('/submit', renderSubmit);
 // render home page
 app.get('/', function(req, res){
 
+  res.locals.title = 'Home';
+
   var query = {};
 
   User.find(query, function(err, data){
