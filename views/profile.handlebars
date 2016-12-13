@@ -2,17 +2,22 @@
 <div class="page-section">
 <div class="row">
 	<div class="small-11 small-centered medium-6 medium-offset-3 large-6 large-offset-3 columns">
-		<h3>My Posts</h3>
+		<h3>My Fears</h3>
 		<br/>
 		<br/>
-		{{#each users}}
-			{{#each lines}}
+{{!-- 		{{#each users}} --}}
+			{{#if user.lines}}
+			{{#each user.lines}}
 			<ul class="inline">
 				<li><p><em>I fear {{text}}</em></p></li>
 				<li><button data-id="{{_id}}" class="delete helper">I no longer fear this</button></li>
 			</ul>
 			{{/each}}
-		{{/each}}
+			{{else}}
+			You are fearless.
+			<br>
+			{{/if}}
+{{!-- 		{{/each}} --}}
 		<br/>
 		<br/>
 		<h3>My Profile</h3>
