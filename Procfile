@@ -1,1 +1,1 @@
-Procfile: npm run watch
+worker: node index.js
