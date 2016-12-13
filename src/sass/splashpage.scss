@@ -1,0 +1,44 @@
+.splashpage {
+
+	min-height: 80%;
+	text-align: center;
+
+	&__banner { 
+		font-family: 'Merienda One', cursive; 
+		font-size: 1200%; 
+		color: $white;
+		padding-top: 15%;
+
+		@media (max-width: 600px) {
+		  padding-top: 35%;
+		  font-size: 700%;
+		  margin-bottom: 50px;
+		}
+	}
+
+	&__button { 
+    	height: 37px;
+	    padding: 8px 32px 8px 32px;
+	    margin-bottom: 20px; 
+	    background-color: transparent;
+	    color: $white;
+	    border-style: solid;
+	    border-width: 2px;
+	    border-color: $white;
+	    width: 150px;
+	    @include transition;
+
+	    &:hover { background-color: #7b5b89; }
+    }
+
+	&__link {
+
+		font-family: 'Roboto', 'Helvetica', sans-serif;
+		color: $white;
+		font-size: 17px;
+		line-height: 17px; 
+
+		&:hover { color: $white; text-decoration: none; }
+	}
+}
+

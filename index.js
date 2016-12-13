@@ -59,9 +59,12 @@ auth.registerRoutes();
 // serve static files from public folder
 app.use(express.static('public'));
 
-// routes (except home page)
-var renderMyPosts = require('./routes/posts');
-app.use('/my-posts', renderMyPosts);
+// routes
+var renderHome = require('./routes/home');
+app.use('/', renderHome);
+
+var renderProfile = require('./routes/profile');
+app.use('/profile', renderProfile);
 
 var renderAPI = require('./routes/api');
 app.use('/api', renderAPI);
@@ -69,21 +72,6 @@ app.use('/api', renderAPI);
 var renderSubmit = require('./routes/submit');
 app.use('/submit', renderSubmit);
 
-// render home page
-app.get('/', function(req, res){
-
-  res.locals.title = 'Home';
-
-  var query = {};
-
-  User.find(query, function(err, data){
-    var pageData = {
-      users: data
-    };
-
-    res.render('index', pageData);
-  });
-});
 
 // start server
 app.listen(PORT, function() {

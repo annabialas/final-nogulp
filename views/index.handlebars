@@ -1,16 +1,23 @@
-{{#if user}}
-<div class="page-section">
+<style>
+	.wrap { background-color: #B083C4;} 
+	.footer__content { color: #FFF; }
+</style>
+
 <div class="row">
-	<div class="small-11 small-centered medium-6 medium-offset-3 large-6 large-offset-3 columns">
-		{{#each users}}
-			{{#each lines}}
-			<div>
-				<p>{{text}}</p>
-			</div>
-			{{/each}}
-		{{/each}}
+	<div class="small-12 medium-6 medium-offset-3 large-6 large-offset-3 columns">
+	<div class="splashpage">
+		<h1 class="splashpage__banner">iFear</h1>
+		<div class="small-12 medium-6 large-6 columns">
+			<button class="splashpage__button"><a href="/signup" class="splashpage__link">Sign Up</a></button>
+		</div>
+		<div class="small-12 medium-6 large-6 columns">
+			<button class="splashpage__button"><a href="/signup" class="splashpage__link">Log In</a></button>
+		</div>
+	</div>
 	</div>
 </div>
-</div>
 
-{{/if}}
+<script>
+
+
+</script>

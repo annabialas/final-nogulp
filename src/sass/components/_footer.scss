@@ -9,5 +9,8 @@
    	line-height: 40px; 
    	font-size: 10px;
    	text-align: right;  
+   	@media (max-width: 600px) {
+		text-align: center; 
+	}
    }
 }

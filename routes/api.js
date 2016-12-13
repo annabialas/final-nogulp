@@ -82,7 +82,7 @@ router.get('/lines', isAuthenticated, function(req, res){
 
 });
 
-router.delete('/lines/:id', function(req, res){
+router.delete('/lines/:id', isAuthenticated, function(req, res){
 
   // User.findOneAndUpdate(req.user._id, {
   //  $pull: { lines: { _id: req.params.id }}

@@ -97,7 +97,8 @@ hr {
 
 .top-nav {
   height: 50px;
-  margin: 0px 0px 60px 0px; }
+  margin: 0px 0px 60px 0px;
+  display: none; }
   .top-nav__logo {
     font-style: italic;
     line-height: 50px;
@@ -124,6 +125,9 @@ hr {
 form,
 .form {
   padding: 10px 0; }
+  form--hidden,
+  .form--hidden {
+    display: none; }
   form input,
   .form input {
     box-shadow: none;
@@ -184,6 +188,9 @@ form,
     line-height: 40px;
     font-size: 10px;
     text-align: right; }
+    @media (max-width: 600px) {
+      .footer__content {
+        text-align: center; } }
 
 .form-title {
   text-align: center;
@@ -191,22 +198,6 @@ form,
 
 .form-description {
   text-align: center; }
-
-.confirm {
-  text-align: center; }
-  .confirm__title {
-    margin-bottom: 1em; }
-  .confirm__description {
-    margin-bottom: 3em; }
-  .confirm a {
-    color: #0000FF;
-    font-weight: 600;
-    transition: all .4s ease;
-    -webkit-transition: all .4s ease; }
-  .confirm a:hover {
-    color: #0000e0;
-    transition: all .4s ease;
-    -webkit-transition: all .4s ease; }
 
 .error {
   text-align: center; }
@@ -223,3 +214,39 @@ form,
     color: #0000e0;
     transition: all .4s ease;
     -webkit-transition: all .4s ease; }
+
+.splashpage {
+  min-height: 80%;
+  text-align: center; }
+  .splashpage__banner {
+    font-family: 'Merienda One', cursive;
+    font-size: 1200%;
+    color: #FFF;
+    padding-top: 15%; }
+    @media (max-width: 600px) {
+      .splashpage__banner {
+        padding-top: 35%;
+        font-size: 700%;
+        margin-bottom: 50px; } }
+  .splashpage__button {
+    height: 37px;
+    padding: 8px 32px 8px 32px;
+    margin-bottom: 20px;
+    background-color: transparent;
+    color: #FFF;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #FFF;
+    width: 150px;
+    transition: all .4s ease;
+    -webkit-transition: all .4s ease; }
+    .splashpage__button:hover {
+      background-color: #7b5b89; }
+  .splashpage__link {
+    font-family: 'Roboto', 'Helvetica', sans-serif;
+    color: #FFF;
+    font-size: 17px;
+    line-height: 17px; }
+    .splashpage__link:hover {
+      color: #FFF;
+      text-decoration: none; }

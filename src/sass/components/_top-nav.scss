@@ -29,4 +29,6 @@
 		a { color: $blue; @include transition;}
 		a:hover { color: $blue-40k; @include transition;}
 	}
+
+	display: none;
 }

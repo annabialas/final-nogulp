@@ -1,0 +1,91 @@
+{{#if user}}
+
+<div class="page-section">
+<div class="row">
+	<div class="small-11 small-centered medium-6 medium-offset-3 large-6 large-offset-3 columns">
+		<h3>My Posts</h3>
+		<br/>
+		{{#each users}}
+			{{#each lines}}
+			<div>
+				<p>{{text}}</p>
+				<button data-id="{{_id}}" class="delete">delete me</button>
+				<br>
+				<br>
+			</div>
+			{{/each}}
+		{{/each}}
+		<h3>About Me</h3>
+		<br/>
+			<p>Username: {{user.username}}</p>
+			<button id="edit">Edit Username</button>
+			<form class="form form--hidden" action="" method="put">
+				<input type="text" name="new-username" id="new-username" placeholder="new username">
+				<input type="submit" class="update" data-id="{{user._id}}" value="Update Username">
+			</form>
+	</div>
+</div>
+</div>
+
+<script>
+
+	$( document ).ready(function() {
+	    $('.top-nav').show();
+	});
+
+	$('#edit').click(showForm);
+
+	function showForm(event) {
+		$('form').show();
+	};
+
+	$('.delete').click(deleteLine);
+
+	function deleteLine(event) {
+
+		console.log(this);
+
+		$.ajax({
+		    url: '/api/lines/' + this.dataset.id,
+		    type: 'DELETE',
+		    success: function(response) { 
+		    	console.log('deleted');
+		    }
+		})
+		
+		$(this).siblings().remove();
+		$(this).remove();
+	};
+
+	$('#edit').click(showForm);
+
+	function showForm(event) {
+		$('form').removeClass('form--hidden');
+	};
+
+	$('.update').click(updateUsername);
+
+	function updateUsername() { 
+
+		var newUsername = $('#new-username').val();
+
+		var editedUser = {
+			new_username: newUsername
+		};
+
+		console.log(editedUser);
+		console.log(this);
+
+		$.ajax({
+			url: '/profile/' + this.dataset.id,
+			method: "PUT",
+			data: editedUser,
+			success: function(response) { 
+				console.log('updated');
+		    }
+    	});
+   	};
+
+</script>
+
+{{/if}}

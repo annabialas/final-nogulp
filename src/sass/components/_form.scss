@@ -2,6 +2,9 @@
 
 form,
 .form {
+
+    &--hidden { display: none; }
+    
     padding: 10px 0;
 
     input { 
