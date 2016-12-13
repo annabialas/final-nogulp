@@ -7,7 +7,7 @@ var MongoStore = require('connect-mongo')(session);
 var mongoose = require('mongoose');
 
 // load .env
-require('dotenv').config();
+require('dotenv').config({silent: true});
 
 // create app
 var app = express();
