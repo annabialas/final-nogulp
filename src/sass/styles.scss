@@ -1,5 +1,3 @@
-// importing main
-@import 'custom';
 
 // components
 @import 'components/variables';
@@ -13,3 +11,6 @@
 @import 'error';
 @import 'profile';
 @import 'splashpage';
+
+// importing main
+@import 'custom';

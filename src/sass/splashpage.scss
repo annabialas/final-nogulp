@@ -10,7 +10,7 @@
 		padding-top: 15%;
 
 		@media (max-width: 600px) {
-		  padding-top: 35%;
+		  padding-top: 25%;
 		  font-size: 700%;
 		  margin-bottom: 50px;
 		}
@@ -18,7 +18,7 @@
 
 	&__button { 
     	height: 37px;
-	    padding: 8px 32px 8px 32px;
+	    padding: 8px 0px 8px 0px;
 	    margin-bottom: 20px; 
 	    background-color: transparent;
 	    color: $white;
@@ -37,8 +37,11 @@
 		color: $white;
 		font-size: 17px;
 		line-height: 17px; 
+		padding: 8px 40px 8px 40px; 
 
 		&:hover { color: $white; text-decoration: none; }
 	}
+
+	&__about { color: $white; font-size: 14px; margin-top: 35px; }
 }
 

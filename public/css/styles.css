@@ -1,25 +1,4 @@
 body {
-  height: 100%; }
-
-.wrap {
-  min-height: 100%;
-  margin-bottom: -40px; }
-
-.wrap:after {
-  content: "";
-  display: block;
-  height: 40px; }
-
-.page-section {
-  margin-top: 30px; }
-
-.row--footer {
-  height: 40px; }
-
-.columns--footer {
-  height: 40px; }
-
-body {
   font-size: 16px;
   font-family: "Roboto", sans-serif;
   line-height: 1.62;
@@ -96,26 +75,36 @@ hr {
   border-top: 1px solid rgba(0, 0, 0, 0.1); }
 
 .top-nav {
-  height: 50px;
+  height: 80px;
   margin: 0px 0px 60px 0px;
-  display: none; }
+  background-color: #B083C4;
+  color: #FFF; }
   .top-nav__logo {
-    font-style: italic;
-    line-height: 50px;
-    vertical-align: middle; }
+    font-family: 'Merienda One', cursive;
+    line-height: 80px;
+    vertical-align: middle;
+    text-transform: initial;
+    font-size: 40px;
+    margin-left: 10px; }
+    @media (max-width: 600px) {
+      .top-nav__logo {
+        margin-left: 0px; } }
+    .top-nav__logo a:hover {
+      text-decoration: none; }
   .top-nav__menu {
-    line-height: 50px;
-    vertical-align: middle; }
+    line-height: 80px;
+    vertical-align: middle;
+    color: #FFF; }
   .top-nav__menu-item {
     text-align: right;
-    line-height: 50px;
+    line-height: 80px;
     vertical-align: middle; }
     .top-nav__menu-item a {
-      color: #0000FF;
+      color: #FFF;
       transition: all .4s ease;
       -webkit-transition: all .4s ease; }
     .top-nav__menu-item a:hover {
-      color: #0000e0;
+      color: #FFF;
       transition: all .4s ease;
       -webkit-transition: all .4s ease; }
 
@@ -157,24 +146,26 @@ form,
     border-width: 1px; }
   form input[type=submit]:hover,
   .form input[type=submit]:hover {
-    background-color: #0000FF;
+    background-color: #3C1362;
     transition: all .4s ease;
     -webkit-transition: all .4s ease; }
   form input[type=submit]:active,
   .form input[type=submit]:active {
-    background-color: #0000e0;
+    background-color: #2c0e48;
     transition: all .4s ease;
     -webkit-transition: all .4s ease; }
   form input[type=submit]:focus,
   .form input[type=submit]:focus {
-    background-color: #0000FF;
+    background-color: #3C1362;
     outline: none;
     transition: all .4s ease;
     -webkit-transition: all .4s ease; }
-  form label#username-error, form label#password-error, form label#repeat_password-error,
+  form label#username-error, form label#password-error, form label#repeat_password-error, form label#new-username-error, form label#line-error,
   .form label#username-error,
   .form label#password-error,
-  .form label#repeat_password-error {
+  .form label#repeat_password-error,
+  .form label#new-username-error,
+  .form label#line-error {
     padding-left: 9px !important;
     color: #FF0000 !important;
     font-style: italic; }
@@ -182,7 +173,10 @@ form,
 .footer {
   bottom: 0;
   width: 100%;
-  height: 40px; }
+  height: 40px;
+  background-color: #B083C4;
+  color: #FFF;
+  margin-top: 30px; }
   .footer__content {
     margin: 0;
     line-height: 40px;
@@ -191,6 +185,15 @@ form,
     @media (max-width: 600px) {
       .footer__content {
         text-align: center; } }
+  .footer__developer {
+    margin: 0;
+    font-weight: 600;
+    line-height: 40px;
+    font-size: 10px;
+    text-align: left; }
+    @media (max-width: 600px) {
+      .footer__developer {
+        display: none; } }
 
 .form-title {
   text-align: center;
@@ -206,12 +209,12 @@ form,
   .error__description {
     margin-bottom: 3em; }
   .error a {
-    color: #0000FF;
+    color: #3C1362;
     font-weight: 600;
     transition: all .4s ease;
     -webkit-transition: all .4s ease; }
   .error a:hover {
-    color: #0000e0;
+    color: #2c0e48;
     transition: all .4s ease;
     -webkit-transition: all .4s ease; }
 
@@ -225,12 +228,12 @@ form,
     padding-top: 15%; }
     @media (max-width: 600px) {
       .splashpage__banner {
-        padding-top: 35%;
+        padding-top: 25%;
         font-size: 700%;
         margin-bottom: 50px; } }
   .splashpage__button {
     height: 37px;
-    padding: 8px 32px 8px 32px;
+    padding: 8px 0px 8px 0px;
     margin-bottom: 20px;
     background-color: transparent;
     color: #FFF;
@@ -246,7 +249,59 @@ form,
     font-family: 'Roboto', 'Helvetica', sans-serif;
     color: #FFF;
     font-size: 17px;
-    line-height: 17px; }
+    line-height: 17px;
+    padding: 8px 40px 8px 40px; }
     .splashpage__link:hover {
       color: #FFF;
       text-decoration: none; }
+  .splashpage__about {
+    color: #FFF;
+    font-size: 14px;
+    margin-top: 35px; }
+
+body {
+  height: 100%; }
+
+.wrap {
+  min-height: 100%;
+  margin-bottom: -40px; }
+
+.wrap:after {
+  content: "";
+  display: block;
+  height: 40px; }
+
+.page-section {
+  margin-top: 30px; }
+
+.row--footer {
+  height: 40px; }
+
+.columns--footer {
+  height: 40px; }
+
+.inline {
+  margin-left: 0px; }
+  .inline li {
+    list-style-type: none;
+    display: inline-block; }
+
+.helper {
+  margin-left: 20px;
+  color: #3C1362;
+  transition: all .4s ease;
+  -webkit-transition: all .4s ease;
+  font-size: 14px; }
+  .helper:hover {
+    text-decoration: underline;
+    color: #2c0e48; }
+
+#new-username {
+  margin-top: 0px; }
+
+.nobottom {
+  margin-bottom: 0px; }
+
+.spaceme {
+  margin-right: 20px;
+  font-weight: 600; }

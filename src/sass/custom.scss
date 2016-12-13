@@ -20,3 +20,28 @@ body {
 .row--footer { height: 40px; }
 
 .columns--footer { height: 40px; }
+
+.inline {
+
+	margin-left: 0px; 
+
+	li { list-style-type: none; display: inline-block; }
+}
+
+.helper { 
+	margin-left: 20px; 
+	color: $blue; 
+	@include transition;
+	font-size: 14px;
+
+	&:hover {
+		text-decoration: underline; 
+		color: $blue-40k;
+	}
+}
+
+#new-username { margin-top: 0px; } 
+
+.nobottom { margin-bottom: 0px; }
+
+.spaceme { margin-right: 20px; font-weight: 600; }

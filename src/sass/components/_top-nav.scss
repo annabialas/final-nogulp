@@ -2,15 +2,26 @@
 
 	height: $top-nav-height;
 	margin: 0px 0px 60px 0px;
+	background-color: #B083C4;
+	color: $white; 
 	// margin: 0px 30px 0px 30px;
 
 	// .row, .columns { padding: 0; }
 
 	&__logo {
 
-		font-style: italic;
+		font-family: 'Merienda One', cursive; 
 		line-height: $top-nav-height;
 		vertical-align: middle;
+		text-transform: initial;
+		font-size: 40px;
+		margin-left: 10px;
+
+		@media (max-width: 600px) {
+		  margin-left: 0px;
+		}
+
+		a:hover { text-decoration: none; }
 
 	}
 
@@ -18,6 +29,7 @@
 
 		line-height: $top-nav-height;
 		vertical-align: middle;
+		color: $white;
 	}
 
 	&__menu-item {
@@ -26,9 +38,8 @@
 		line-height: $top-nav-height;
 		vertical-align: middle;
 
-		a { color: $blue; @include transition;}
-		a:hover { color: $blue-40k; @include transition;}
+		a { color: $white; @include transition;}
+		a:hover { color: $white; @include transition;}
 	}
 
-	display: none;
 }

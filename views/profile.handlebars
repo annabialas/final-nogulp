@@ -5,33 +5,63 @@
 	<div class="small-11 small-centered medium-6 medium-offset-3 large-6 large-offset-3 columns">
 		<h3>My Posts</h3>
 		<br/>
+		<br/>
 		{{#each users}}
 			{{#each lines}}
-			<div>
-				<p>{{text}}</p>
-				<button data-id="{{_id}}" class="delete">delete me</button>
-				<br>
-				<br>
-			</div>
+			<ul class="inline">
+				<li><p><em>I fear {{text}}</em></p></li>
+				<li><button data-id="{{_id}}" class="delete helper">I no longer fear this</button></li>
+			</ul>
 			{{/each}}
 		{{/each}}
-		<h3>About Me</h3>
 		<br/>
-			<p>Username: {{user.username}}</p>
-			<button id="edit">Edit Username</button>
-			<form class="form form--hidden" action="" method="put">
-				<input type="text" name="new-username" id="new-username" placeholder="new username">
+		<br/>
+		<h3>My Profile</h3>
+		<br/>
+		<br/>
+			<ul class="inline nobottom">
+				<li><p><span class="spaceme">My Username:</span></b> {{user.username}}</p></li>
+				<li><button id="edit" class="helper">Edit Username</button></li>
+			</ul>
+			<form class="form form--hidden" action="" name="update" method="put">
+				<input type="text" name="new_username" id="new-username" placeholder="new username">
 				<input type="submit" class="update" data-id="{{user._id}}" value="Update Username">
 			</form>
 	</div>
 </div>
 </div>
-
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
 <script>
+// Wait for the DOM to be ready
 
-	$( document ).ready(function() {
-	    $('.top-nav').show();
-	});
+$(function() {
+  // Initialize form validation on the registration form.
+  // It has the name attribute "registration"
+  $("form[name='update']").validate({
+    // Specify validation rules
+    rules: {
+      // The key name on the left side is the name attribute
+      // of an input field. Validation rules are defined
+      // on the right side
+      new_username: {
+      	required: true,
+      	minlength: 4
+      }
+    },
+    // Specify validation error messages
+    messages: {
+      new_username: {
+      	required: "Please provide a new username",
+      	minlength: "Your new username must be at least 4 characters long"
+      }
+    },
+    // Make sure the form is submitted to the destination defined
+    // in the "action" attribute of the form when valid
+    submitHandler: function(form) {
+      form.submit();
+    }
+  });
+});
 
 	$('#edit').click(showForm);
 
@@ -53,7 +83,7 @@
 		    }
 		})
 		
-		$(this).siblings().remove();
+		$(this).parent().parent().remove();
 		$(this).remove();
 	};
 
