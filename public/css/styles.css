@@ -296,6 +296,16 @@ body {
     text-decoration: underline;
     color: #2c0e48; }
 
+.already {
+  color: #3C1362;
+  transition: all .4s ease;
+  -webkit-transition: all .4s ease;
+  font-size: 14px;
+  text-decoration: underline; }
+  .already:hover {
+    text-decoration: underline;
+    color: #2c0e48; }
+
 #new-username {
   margin-top: 0px; }
 

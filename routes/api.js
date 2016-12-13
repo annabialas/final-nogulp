@@ -14,11 +14,11 @@ function isAuthenticated(req, res, next) {
 
 router.get('/', isAuthenticated, function(req, res){
 
-    var query = {};
+    // var query = {};
 
-    if (req.query.q) {
-     query = { line: req.query.q };
-    };
+    // if (req.query.q) {
+    //  query = { line: req.query.q };
+    // };
 
     var re = new RegExp(req.query.q, 'i');
                                       
@@ -46,6 +46,7 @@ router.get('/', isAuthenticated, function(req, res){
         var pageData = {
           users: data
         };
+        // why does this return all results...
         res.render('api', pageData);
 
       });

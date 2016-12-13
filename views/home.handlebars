@@ -1,4 +1,13 @@
+<style>.flash {color: green;} .flash-header {font-weight: 600;}</style>
 {{#if user}}
+{{#if flash}}
+		<div class="row flash">
+		<div class="small-11 small-centered medium-6 medium-offset-3 large-6 large-offset-3 columns">
+	        <p class="flash-header"><em>{{flash.header}}</em></p>
+	        <p><em>{{flash.body}}</em></p>
+	    </div>
+	    </div>
+	{{/if}}
 <div class="page-section">
 <div class="row">
 	<div class="small-11 small-centered medium-6 medium-offset-3 large-6 large-offset-3 columns">

@@ -1,14 +1,15 @@
+<style>.flash {color: red;} .flash-header {font-weight: 600;} .row--flash:before {display: none;} </style>
 <div class="page-section">
 <div class="row">
 	<div class="small-11 small-centered medium-6 medium-offset-3 large-6 large-offset-3 columns">
 	<h3 class="form-title">Search</h3>
 	<form class="form" action="" method="get">
-		<input type="text" name="q" placeholder="what are you looking for?">
+		<input type="text" name="q" placeholder="Peruse fears using keywords">
 		<input type="submit" value="Search">
 	</form>
 	<br>
 	<br>
-	<h3 class="form-title">Results</h3>
+	<h3 class="form-title">Fears</h3>
 	{{#each users}}
 		{{#each lines}}
 		<div>
@@ -17,6 +18,15 @@
 		{{/each}}
 	{{/each}}
 	</div>
+	{{#if flash}}
+		<div class="row row--flash flash">
+		<div class="small-11 small-centered medium-6 medium-offset-3 large-6 large-offset-3 columns">
+	        <p class="flash-header"><em>{{flash.header}}</em></p>
+	        <p><em>{{flash.body}}</em></p>
+	    </div>
+	    </div>
+	{{/if}}
+
 
 </div>
 </div>

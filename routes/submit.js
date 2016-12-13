@@ -8,8 +8,14 @@ function isAuthenticated(req, res, next) {
     if (req.user) {
         return next();
     }
-
+    
     res.redirect('login');
+    // res.redirect('login', {
+    //     flash: {
+    //       header: 'Permission Denied',
+    //       body: 'You must be logged in to see this page.'
+    //     }
+    // }); // I know we can't display flash messages with redirects, but is there an alternative?
 }
 
 router.get('/', isAuthenticated, function(req, res){

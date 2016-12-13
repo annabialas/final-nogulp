@@ -40,6 +40,18 @@ body {
 	}
 }
 
+.already {
+	color: $blue; 
+	@include transition;
+	font-size: 14px;
+	text-decoration: underline;
+
+	&:hover {
+		text-decoration: underline; 
+		color: $blue-40k;
+	}
+}
+
 #new-username { margin-top: 0px; } 
 
 .nobottom { margin-bottom: 0px; }
