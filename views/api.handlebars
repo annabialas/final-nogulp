@@ -6,14 +6,17 @@
 		<input type="text" name="q" placeholder="what are you looking for?">
 		<input type="submit" value="Search">
 	</form>
-	</div>
+	<br>
+	<br>
+	<h3 class="form-title">Results</h3>
 	{{#each users}}
 		{{#each lines}}
 		<div>
-			<p>{{text}}</p>
+			<p><em>{{text}}</em></p>
 		</div>
 		{{/each}}
 	{{/each}}
+	</div>
 
 </div>
 </div>

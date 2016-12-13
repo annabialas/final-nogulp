@@ -30,17 +30,19 @@ router.get('/', isAuthenticated, function(req, res){
           res.status(500);
           return res.json({
             status: 'error', 
-            message: 'could not get lines'
+            message: 'Could not get fears.'
           });
         };
         if (data.length === 0) {
           return res.render('api', {
               flash: {
-                body: 'there are no lines matching your criteria'
+                body: 'There are no fears matching your criteria.'
               }
           });
-
         };
+        // if (req.query.q == '') {
+        //   return res.render('api')
+        // }; // boop, how do I NOT display all results on no query????
         var pageData = {
           users: data
         };
@@ -52,11 +54,11 @@ router.get('/', isAuthenticated, function(req, res){
 
 router.get('/lines', isAuthenticated, function(req, res){
 
-  var query = {};
+  // var query = {};
 
-  if (req.query.line) {
-   query = { line: req.query.line };
-  };
+  // if (req.query.line) {
+  //  query = { line: req.query.line };
+  // };
 
   var re = new RegExp(req.query.line, 'i');
                                       
@@ -76,7 +78,7 @@ router.get('/lines', isAuthenticated, function(req, res){
           status: 'there are no lines matching your criteria', 
         });
       };
-
+      console.log(data);
       return res.json(data);
     });
 
