@@ -61,16 +61,16 @@ app.use(express.static('public'));
 
 // routes
 var renderHome = require('./routes/home');
-app.use('./', renderHome);
+app.use('/', renderHome);
 
 var renderProfile = require('./routes/profile');
-app.use('./profile', renderProfile);
+app.use('/profile', renderProfile);
 
 var renderAPI = require('./routes/api');
-app.use('./api', renderAPI);
+app.use('/api', renderAPI);
 
 var renderSubmit = require('./routes/submit');
-app.use('./submit', renderSubmit);
+app.use('/submit', renderSubmit);
 
 
 // start server
