@@ -11,7 +11,7 @@ require('dotenv').config({silent: true});
 
 // create app
 var app = express();
-var PORT = process.env.PORT || 8080;
+var PORT = 8080;
 
 var User = require('./models/user');
 
