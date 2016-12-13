@@ -175,8 +175,7 @@ form,
   width: 100%;
   height: 40px;
   background-color: #B083C4;
-  color: #FFF;
-  margin-top: 30px; }
+  color: #FFF; }
   .footer__content {
     margin: 0;
     line-height: 40px;
@@ -201,22 +200,6 @@ form,
 
 .form-description {
   text-align: center; }
-
-.error {
-  text-align: center; }
-  .error__title {
-    margin-bottom: 1em; }
-  .error__description {
-    margin-bottom: 3em; }
-  .error a {
-    color: #3C1362;
-    font-weight: 600;
-    transition: all .4s ease;
-    -webkit-transition: all .4s ease; }
-  .error a:hover {
-    color: #2c0e48;
-    transition: all .4s ease;
-    -webkit-transition: all .4s ease; }
 
 .splashpage {
   min-height: 80%;
