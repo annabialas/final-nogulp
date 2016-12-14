@@ -5,21 +5,33 @@ body {
 .wrap {
   min-height: 100%;
   margin-bottom: -40px; 
+
+
 }
 
 .wrap:after {
   content: "";
   display: block;
   height: 40px;
+
 }
 
 .page-section { 
 	margin-top: 30px;
 }
 
-.row--footer { height: 40px; }
+.row--footer { 
+	height: 40px; 
 
-.columns--footer { height: 40px; }
+}
+
+.columns--footer {
+	height: 40px; 
+	@media (max-width: 600px) {
+		 height: 0px;
+      }
+
+}
 
 .inline {
 
@@ -57,3 +69,20 @@ body {
 .nobottom { margin-bottom: 0px; }
 
 .spaceme { margin-right: 20px; font-weight: 600; }
+
+.normal { 
+	@media (max-width: 600px) {
+		 display: none;
+      }
+ }
+ .mobile { 
+	@media (max-width: 600px) {
+		 display: block;
+		 .top-nav__menu-item { line-height: 40px; }
+      }
+    @media (min-width: 600px) {
+		 display: none;
+      }
+ }
+
+ .fear:last-child {margin-bottom: 60px; }

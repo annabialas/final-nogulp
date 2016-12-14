@@ -262,6 +262,9 @@ body {
 
 .columns--footer {
   height: 40px; }
+  @media (max-width: 600px) {
+    .columns--footer {
+      height: 0px; } }
 
 .inline {
   margin-left: 0px; }
@@ -298,3 +301,20 @@ body {
 .spaceme {
   margin-right: 20px;
   font-weight: 600; }
+
+@media (max-width: 600px) {
+  .normal {
+    display: none; } }
+
+@media (max-width: 600px) {
+  .mobile {
+    display: block; }
+    .mobile .top-nav__menu-item {
+      line-height: 40px; } }
+
+@media (min-width: 600px) {
+  .mobile {
+    display: none; } }
+
+.fear:last-child {
+  margin-bottom: 60px; }

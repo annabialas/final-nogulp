@@ -46,7 +46,7 @@ router.get('/', isAuthenticated, function(req, res){
         var pageData = {
           users: data
         };
-        // why does this return all results...
+        // why does this return all of particular user's lines..
         res.render('api', pageData);
 
       });
